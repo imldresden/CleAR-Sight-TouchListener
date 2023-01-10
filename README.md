@@ -1,12 +1,21 @@
+# CleAR-Sight Touch Listener #
+
+This is the touch listener used in the [Clear-Sight prototype](https://github.com/imldresden/CleAR-Sight).
+
+## Installation ##
+
 1. Make sure that you have correctly installed Raspberry Pi OS.
 2. Copy the files in the repository to the device, e.g., using git or scp:
 
-    scp .\prototype-transparent-tablet\touch-raspberry\* pi@XXX.XXX.XXX.XXX:~/touch-server/
+    ````console
+    $ scp .\prototype-transparent-tablet\touch-raspberry\* pi@XXX.XXX.XXX.XXX:~/touch-server/
+    ````
 
 3. Use chmod to make server.sh executable if it isn't.
 4. Edit server.sh as needed, changing device name or IP address. Make sure the file has correct Unix style line endings!
 5. Add server.sh to autostart:
 
+    ````console
     $ sudo crontab -e
     
     Add the following lines:
@@ -14,8 +23,12 @@
     @reboot /bin/sleep 30 ; "/home/pi/touch-server/server.sh"
     # switches power saving off for Wifi
     @reboot /sbin/iwconfig wlan0 power off
+    ````
 
 Compilation of touchlistener:
+
+    ````console
     $ gcc -o touchlistener touchlistener.c
+    ````
 
 
