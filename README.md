@@ -10,6 +10,11 @@ This is the touch listener used in the [Clear-Sight prototype](https://github.co
     ````console
     $ scp .\prototype-transparent-tablet\touch-raspberry\* pi@XXX.XXX.XXX.XXX:~/touch-server/
     ````
+3. Compile the touch listener binary, precompiled binaries are also in the repository:
+
+    ````console
+    $ gcc -o touchlistener touchlistener.c
+    ````
 
 3. Use chmod to make server.sh executable if it isn't.
 4. Edit server.sh as needed, changing device name or IP address. Make sure the file has correct Unix style line endings!
@@ -24,11 +29,3 @@ This is the touch listener used in the [Clear-Sight prototype](https://github.co
     # switches power saving off for Wifi
     @reboot /sbin/iwconfig wlan0 power off
     ````
-
-Compilation of touchlistener:
-
-    ````console
-    $ gcc -o touchlistener touchlistener.c
-    ````
-
-
